@@ -58,6 +58,7 @@ function setParamaters(){
 	}
 }
 
+//Generates a list depending on the options selected and returns a random value from that list
 function generateCharacter(){ 
 	var charList = [];
 
@@ -76,6 +77,7 @@ function generateCharacter(){
 	return charList[Math.floor(Math.random() * charList.length)];
 }
 
+// generates the password for the user
 function generatePassword(){
 	var password = ""
 
