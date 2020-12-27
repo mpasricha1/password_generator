@@ -73,7 +73,7 @@ function generateCharacter(){
 	if(passwordObj.special === true){
 		charList.push(getRandomSymbol());
 	}
-	console.log(charList)
+	return charList[Math.floor(Math.random() * charList.length)];
 }
 
 function generatePassword(){
@@ -83,10 +83,10 @@ function generatePassword(){
 	setParamaters();
 
 	for(var i = 0; i < passwordObj.length; i++){
-		password.concat(generateCharacter());
+		password += generateCharacter()
 	}
 	
-	console.log(passwordObj);
+	return password;
 
 }
 
