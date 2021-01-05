@@ -9,6 +9,9 @@ var passwordObj = {
 	special: false
 }
 
+//**************************************************************
+// Random functions courtesy of 
+// https://dev.to/olawanle_joel/password-generator-with-javascript-57c
 function getRandomUpperCase(){
     return String.fromCharCode(Math.floor(Math.random()*26)+65);
 }
@@ -22,6 +25,7 @@ function getRandomSymbol(){
     var symbol = "!@#$%^&*(){}[]=<>/,.|~?";
     return symbol[Math.floor(Math.random()*symbol.length)];
 }
+//**************************************************************
 
 // Write password to the #password input
 function writePassword() {
@@ -36,7 +40,7 @@ function validatePasswordLength(){
 	passwordObj.length = prompt("Enter a password length between 8 and 128 characters"); 
 
 	if(passwordObj.length < 8 || passwordObj.length > 128){
-		alert("Password length does not meet requirement. Reenter password length.");
+		alert("Password length does not meet length requirement. Reenter password length.");
 		validatePasswordLength(); 
 	}else{
 		return;
@@ -50,8 +54,8 @@ function setParamaters(){
 	passwordObj.special = confirm("Do you want to include special characters?")
 
 	if(passwordObj.lower === false && passwordObj.upper === false 
-		&& passwordObj.numeric === false & passwordObj.special === false ){
-		alert("You must choose at least 1 of the requirement."); 
+		&& passwordObj.numeric === false && passwordObj.special === false ){
+		alert("You must choose at least 1 of the requirements."); 
 		setParamaters()
 	}else{
 		return;
@@ -74,7 +78,7 @@ function generateCharacter(){
 	if(passwordObj.special === true){
 		charList.push(getRandomSymbol());
 	}
-	return charList[Math.floor(Math.random() * charList.length)];
+	return charList[Math.floor(Math.random()*charList.length)];
 }
 
 // generates the password for the user
@@ -89,7 +93,6 @@ function generatePassword(){
 	}
 	
 	return password;
-
 }
 
 // Add event listener to generate button
